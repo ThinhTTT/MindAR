@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "aframe": "^1.7.1",
+    "stats.js": "^0.17.0"
+  }
+}

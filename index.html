@@ -1,0 +1,34 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const exampleTarget = document.querySelector('#avatarModel');
+        // detect target found
+        exampleTarget.addEventListener("targetFound", event => {
+          console.log("target found");
+        });
+        // detect target lost
+        exampleTarget.addEventListener("targetLost", event => {
+          console.log("target lost");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    
+    <a-scene mindar-image="imageTargetSrc: ../targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-assets>
+	<a-asset-item id="avatarModel" src="../GOKU_01.gltf"></a-asset-item>
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-entity mindar-image-target="targetIndex: 0" log-marker-scale>
+        <a-gltf-model rotation="90 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel">
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
